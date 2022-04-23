@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { detailsProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -8,14 +8,21 @@ import Rating from '../components/Rating';
 
 export default function ProductScreen(props) {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { id } = useParams();
     const productId = id;
+    const [qtde, setQtde] = useState(1);
     const productDetails = useSelector(state => state.productDetails);
     const { loading, error, product } = productDetails;
 
     useEffect(() => {
         dispatch(detailsProduct(productId));
     }, [dispatch, productId]);
+
+    const addToCartHandler = () => {
+        /*history.push(`/cart/${productId}?qtde={qtde}`);*/
+        navigate(`/cart/${productId}?qtde=${qtde}`);
+    }
 
     return (
         <div>
@@ -71,9 +78,29 @@ export default function ProductScreen(props) {
                                             </div>
                                         </div>
                                     </li>
-                                    <li>
-                                        <button className="primary block">Adicionar ao Carrinho</button>
-                                    </li>
+                                    {
+                                        product.countInStock > 0 && (
+                                            <>
+                                                <li>
+                                                    <div className='row'>
+                                                        <div>Qtde</div>
+                                                        <div>
+                                                            <select value={qtde} onChange={e => setQtde(e.target.value)}>
+                                                                {[...Array(product.countInStock).keys()].map(
+                                                                    x => (
+                                                                        <option key={x + 1} value={x + 1}>{x + 1}</option>
+                                                                    )
+                                                                )}
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <button onClick={addToCartHandler} className="primary block">Adicionar ao Carrinho</button>
+                                                </li>
+                                            </>
+                                        )
+                                    }
                                 </ul>
                             </div>
                         </div>
@@ -81,6 +108,5 @@ export default function ProductScreen(props) {
                 </div>
             )}
         </div>
-
     );
 }
