@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
+import { addToCart } from '../actions/cartActions';
 
 export default function CartScreen(props) {
     /*const { id } = useParams();
@@ -11,6 +13,12 @@ export default function CartScreen(props) {
     const { search } = useLocation();
     const qtdeInUrl = new URLSearchParams(search).get('qtde');
     const qtde = qtdeInUrl ? Number(qtdeInUrl) : 1;
+    const dispatch = useDispatch();
+    useEffect(() => {
+        if (productId) {
+            dispatch(addToCart(productId, qtde));
+        }
+    }, [dispatch, productId, qtde]);
 
     return (
         <div>
