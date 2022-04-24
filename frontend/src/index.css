@@ -88,7 +88,7 @@ button {
     border-radius: 0.5rem;
     border: 0.1rem #a4a4a4 solid;
     font-size: 1.6rem;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: "Amazon Ember", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -227,4 +227,21 @@ img.large {
 .alert-danger {
     color: #a02020;
     background-color: #ffe0e0;
+}
+
+/* Form */
+.form {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.form>div {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.form label {
+    margin: 1rem 0;
+    display: block;
 }

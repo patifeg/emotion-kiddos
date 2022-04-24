@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
+import SigninScreen from './screens/SigninScreen';
 
 
 function App() {
@@ -30,8 +31,10 @@ function App() {
                 </header>
                 <main>
                     <Routes>
+                        <Route path="/cart" element={<CartScreen />} />
                         <Route path="/cart/:id" element={<CartScreen />} />
                         <Route path="/product/:id" element={<ProductScreen />}></Route>
+                        <Route path="/signin" element={<SigninScreen />}></Route>
                         <Route path="/" element={<HomeScreen />} exact></Route>
                     </Routes>
                 </main>
