@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/patifeg/emotion-kiddos#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.3",
+    "express-async-handler": "^1.2.0",
+    "mogoose": "^0.0.1-security",
+    "mongoose": "^6.3.1"
   },
   "devDependencies": {
     "eslint": "^8.13.0",
