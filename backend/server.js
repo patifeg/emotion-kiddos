@@ -1,11 +1,14 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
 import productRouter from './routers/productRouter.js';
 import userRouter from './routers/userRouter.js';
 
-const app = express();
+dotenv.config();
 
-console.log('tentar conexão');
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 mongoose.connect(process.env.MONGDODB_URL || 'mongodb://127.0.0.1/EmotionKiddos', {
     useNewUrlParser: true,
