@@ -17,8 +17,7 @@ const data = {
     ],
     products: [
         {
-            _id: '1',
-            name: 'Vestido Cinderela',
+            name: 'Vestido Cinderela P',
             category: 'Vestidos',
             image: '/images/p1.jpg',
             price: 279,
@@ -29,8 +28,7 @@ const data = {
             description: 'Vestido de alta qualidade da princesa do sapatinho de cristal',
         },
         {
-            _id: '2',
-            name: 'Vestido Jasmine',
+            name: 'Vestido Jasmine P',
             category: 'Vestidos',
             image: '/images/p2.jpg',
             price: 179,
@@ -41,8 +39,7 @@ const data = {
             description: 'Vestido de alta qualidade',
         },
         {
-            _id: '3',
-            name: 'Vestido Cinderela',
+            name: 'Vestido Cinderela M',
             category: 'Vestidos',
             image: '/images/p1.jpg',
             price: 279,
@@ -53,8 +50,7 @@ const data = {
             description: 'Vestido de alta qualidade da princesa do sapatinho de cristal',
         },
         {
-            _id: '4',
-            name: 'Vestido Jasmine',
+            name: 'Vestido Jasmine M',
             category: 'Vestidos',
             image: '/images/p2.jpg',
             price: 179,
@@ -65,8 +61,7 @@ const data = {
             description: 'Vestido de alta qualidade',
         },
         {
-            _id: '5',
-            name: 'Vestido Cinderela',
+            name: 'Vestido Cinderela G',
             category: 'Vestidos',
             image: '/images/p1.jpg',
             price: 279,
@@ -77,11 +72,11 @@ const data = {
             description: 'Vestido de alta qualidade da princesa do sapatinho de cristal',
         },
         {
-            _id: '6',
-            name: 'Vestido Jasmine',
+            name: 'Vestido Jasmine G',
             category: 'Vestidos',
             image: '/images/p2.jpg',
             price: 179,
+            countInStock: 2,
             brand: 'EK',
             rating: 3.5,
             numReviews: 7,
