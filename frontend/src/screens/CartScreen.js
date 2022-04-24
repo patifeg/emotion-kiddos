@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { addToCart, removeFromCart } from '../actions/cartActions';
 import MessageBox from '../components/MessageBox';
 
@@ -16,6 +16,8 @@ export default function CartScreen(props) {
     const qtde = qtdeInUrl ? Number(qtdeInUrl) : 1;
     const cart = useSelector((state) => state.cart);
     const { cartItems } = cart;
+    const navigation = useRef(useNavigate());
+
     const dispatch = useDispatch();
     useEffect(() => {
         if (productId) {
@@ -26,7 +28,8 @@ export default function CartScreen(props) {
         dispatch(removeFromCart(id));
     }
     const checkoutHandler = () => {
-        props.history.push('/signin?redirect=shipping');
+        //props.history.push('/signin?redirect=shipping');
+        navigation.current('/signin?redirect=shipping');
     }
     return (
         <div className='row top'>
