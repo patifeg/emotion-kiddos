@@ -66,7 +66,7 @@ export default function CartScreen(props) {
                                                     </select>
                                                 </div>
                                                 <div>
-                                                    R${item.price}
+                                                    R${item.price.toFixed(2)}
                                                 </div>
                                                 <div>
                                                     <button type="button" onClick={() => removeFromCartHandler(item.product)}>Remover</button>

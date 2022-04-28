@@ -49,7 +49,7 @@ export default function ProductScreen(props) {
                                     ></Rating>
                                 </li>
                                 <li>
-                                    Preço : R${product.price}
+                                    Preço : R${product.price.toFixed(2)}
                                 </li>
                                 <li>
                                     Descrição:
