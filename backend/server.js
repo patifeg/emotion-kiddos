@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
+import orderRouter from './routers/orderRouter.js';
 import productRouter from './routers/productRouter.js';
 import userRouter from './routers/userRouter.js';
 
@@ -20,6 +21,8 @@ mongoose.connect(process.env.MONGDODB_URL || 'mongodb://127.0.0.1/EmotionKiddos'
 app.use('/api/users', userRouter);
 
 app.use('/api/products', productRouter);
+
+app.use('/api/orders', orderRouter);
 
 app.get('/', (req, res) => {
     res.send('Server is ready');
